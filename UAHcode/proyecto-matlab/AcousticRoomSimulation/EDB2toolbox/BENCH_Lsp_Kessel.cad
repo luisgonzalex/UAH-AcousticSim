@@ -1,0 +1,55 @@
+Example of CAD-file (version CATT-Acoustic v6)
+The loudspeaker used in the paper by Vanderkooy:
+J. Vanderkooy, "A simple theory of cabinet edge diffraction,"
+JAES, 39, pp. 923-933 (1991).
+The example in that paper used a source at the coordinates [0 0 0]
+and a receiver at [0 0 10]. 
+Note that for some implementations of the image source method,
+the source cannot be placed on a surface but must be displaced by
+a small distance, e.g. to [0 0 0.0001].
+Peter Svensson (svensson@tele.ntnu.no) 990813
+
+%CORNERS
+
+   1   -0.2000000   -0.4400000   -0.3200000
+   2   0.2000000   -0.4400000   -0.3200000
+   3   0.2000000   0.2000000   -0.3200000
+   4   -0.2000000   0.2000000   -0.3200000
+   5   -0.2000000   -0.4400000   0.0000000
+   6   0.2000000   -0.4400000   0.0000000
+   7   0.2000000   0.2000000   0.0000000
+   8   -0.2000000   0.2000000   0.0000000
+
+%PLANES
+
+  1 / /RIGID
+  1  4  3  2  
+
+  2 / /RIGID
+  5  6  7  8  
+
+  3 / /RIGID
+  1 2 6 5 
+
+  4 / /RIGID
+  3 4 8 7
+
+  5 / /RIGID
+  2 3 7 6
+  
+  6 / /RIGID
+  1 5 8 4
+
+
+%SOURCES
+
+0 OMNI:SD0
+   0.0000000   0.0000000   0.0001000
+   0.0000000   0.0000000   0.0000000
+  85.0  88.0  91.0  94.0  97.0  100.0
+
+%RECEIVERS
+
+   1   0.0000000   0.0000000   10.0000000
+
+%EOF
